@@ -1,0 +1,42 @@
+tags:
+  environment: "dev"
+  project: "lab-networking"
+
+## GLOBALS ## 
+location: "West Europe"
+gateway_transit_enabled: true
+
+core:
+  resource-group: "cor-indesia-vnet-rg"
+  vnet-name: "cor-indesia-vnet"
+  vnet-id: "/subscriptions/e95bd041-e5b4-43ac-943a-e97c59bbb483/resourceGroups/cor-indesia-vnet-rg/providers/Microsoft.Network/virtualNetworks/cor-indesia-vnet"
+  peering-hub-to-spoke-lab: "cor-indesia-vnet-to-lab-test-plat-vnet"
+  peering-hub-to-spoke-dev: "cor-indesia-vnet-to-lab-test-plat-vnet"
+
+lab:
+  #### CORE ####
+
+  ## RG ##
+  resource-group: "lab-test-plat-rg"
+  ## VNET ##
+  vnet-name: "lab-test-plat-vnet"
+  vnet-address-space:
+    - "172.29.0.0/24"
+  ## PEERING ##
+  peering-spoke-to-hub-core: "lab-test-plat-vnet-to-cor-indesia-vnet"
+  peering_spoke_name: "lab-cross-plat-vnet-to-cor-indesia-vnet"
+  
+  #### PGSQL ####
+
+  ## FLEXISERVER ##
+  ## PEP ##
+  ## ADMIN-ADD ##
+
+dev:
+  #### CORE ####
+  resource-group: "lab-test-plat-rg"
+  vnet-name: "lab-test-plat-vnet"
+  vnet-address-space:
+    - "172.29.0.0/24"
+  peering-spoke-to-hub-core: "lab-test-plat-vnet-to-cor-indesia-vnet"
+  peering_spoke_name: "lab-cross-plat-vnet-to-cor-indesia-vnet"
